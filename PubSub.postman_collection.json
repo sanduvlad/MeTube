@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"Name\": \"First\",\r\n    \"VideoData\": \"lord of the rings\"\r\n}",
+					"raw": "{\r\n    \"Name\": \"lord of the rings\",\r\n    \"VideoData\": \"GANDALF\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -39,7 +39,25 @@
 			"name": "Watch the video",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44314/api/video?videoName=\"lord of the rings\"",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44314",
+					"path": [
+						"api",
+						"video"
+					],
+					"query": [
+						{
+							"key": "videoName",
+							"value": "\"lord of the rings\""
+						}
+					]
+				}
 			},
 			"response": []
 		},
