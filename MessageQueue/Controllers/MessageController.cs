@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace MessageQueue.Controllers
@@ -29,6 +30,12 @@ namespace MessageQueue.Controllers
             try
             {
                 var messageId = _queueManager.AddMessage(message);
+                var compressServiceUrl = "https://localhost:44305/";
+
+                var client = new HttpClient();
+                client.DefaultRequestHeaders.Add("compressReady", messageId.ToString());
+                client.GetAsync(compressServiceUrl);
+
 
                 return Ok(new { messageId });
             }

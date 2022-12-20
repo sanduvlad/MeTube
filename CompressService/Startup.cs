@@ -46,6 +46,22 @@ namespace CompressService
             {
                 endpoints.MapControllers();
             });
+
+            app.Use(async (context, next) =>
+            {
+                // if specific condition does not meet
+                if (context.Request.Headers.ContainsKey("compressReady"))
+                {
+                    var videoToCompress = context.Request.Headers["compressReady"];
+                    //context.Response.Redirect("api/CompressionFacility?videoToCompress=");
+                    context.Response.Redirect("/weatherforecast");
+                    //await next.Invoke();
+                }
+                else
+                {
+                    await next.Invoke();
+                }
+            });
         }
     }
 }
