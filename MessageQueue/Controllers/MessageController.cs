@@ -30,7 +30,7 @@ namespace MessageQueue.Controllers
             try
             {
                 var messageId = _queueManager.AddMessage(message);
-                var compressServiceUrl = "https://localhost:44305/";
+                var compressServiceUrl =  "https://localhost:44305/";
 
                 var client = new HttpClient();
                 client.DefaultRequestHeaders.Add("compressReady", messageId.ToString());
