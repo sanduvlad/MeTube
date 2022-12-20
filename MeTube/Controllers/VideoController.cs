@@ -29,8 +29,7 @@ namespace MeTube.Controllers
         public async Task<IActionResult> UploadVideo([FromBody] VideoUploadRequest videoUploadRequest)
         {
             var _client = _httpClientFactory.CreateClient();
-            var url = _configuration.get
-                "https://localhost:44322/api/message/publish";
+            var url = _configuration.GetSection("MessageQueueUrl").Value;
             var messageData = new 
             {
                 Name = videoUploadRequest.Name,
@@ -44,10 +43,15 @@ namespace MeTube.Controllers
         }
 
         [HttpGet]
-        public IActionResult WatchVideo([FromQuery] Guid videoId)
+        public async Task<IActionResult> WatchVideo([FromQuery] string videoname)
         {
+            var _client = _httpClientFactory.CreateClient();
+            var url = _configuration.GetSection("MessageQueueUrl").Value;
+            url = url.Replace("/publish", $"/ByName?videoName={videoname}");
 
-            return Ok(videoId);
+            var responseMessage = await (await _client.GetAsync(url)).Content.ReadAsStringAsync(); // should not be awaited
+
+            return Ok(responseMessage);
         }
     }
 }

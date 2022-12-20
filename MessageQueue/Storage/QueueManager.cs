@@ -49,5 +49,19 @@ namespace MessageQueue.Storage
 
             return result;
         }
+
+        public void ReplaceMessage(Message message)
+        {
+            var currentMessageId = Messages.First(m => m.Value.Name == message.Name).Key;
+
+            Messages[currentMessageId] = message;
+        }
+
+        public Message GetMessage(string messageName)
+        {
+            var message = Messages.First(m => m.Value.Name == messageName).Value;
+
+            return message;
+        }
     }
 }

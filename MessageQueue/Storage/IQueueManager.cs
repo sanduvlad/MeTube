@@ -11,5 +11,7 @@ namespace MessageQueue.Storage
         public Guid AddMessage(Message message);
         public bool RemoveMessage(Guid messageId);
         public Message GetMessage(Guid messageId);
+        public Message GetMessage(string messageName);
+        void ReplaceMessage(Message message);
     }
 }

@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "d428ff9f-0b3b-4d93-b449-e99ac15a861d",
+		"name": "PubSub",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Publish a video",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Name\": \"First\",\r\n    \"VideoData\": \"lord of the rings\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44314/api/video/upload",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44314",
+					"path": [
+						"api",
+						"video",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Watch the video",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "MessageQueue Retrieve",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Name\": \"Video Input\",\r\n    \"Data\": \"Video Data\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44322/api/message?messageid=c4cb28c9-3c8b-4c19-99f5-635beaffcdcc",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"message"
+					],
+					"query": [
+						{
+							"key": "messageid",
+							"value": "c4cb28c9-3c8b-4c19-99f5-635beaffcdcc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MessageQueue Publish",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Name\": \"Video Input\",\r\n    \"Data\": \"Video Data\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44322/api/message/publish",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44322",
+					"path": [
+						"api",
+						"message",
+						"publish"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

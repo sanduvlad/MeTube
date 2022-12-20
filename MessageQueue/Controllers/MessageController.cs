@@ -16,7 +16,7 @@ namespace MessageQueue.Controllers
     public class MessageController : ControllerBase
     {
         private readonly IQueueManager _queueManager;
-        private ILogger<MessageController> _logger;
+        private readonly ILogger<MessageController> _logger;
 
         public MessageController(IQueueManager queueManager, ILogger<MessageController> logger)
         {
@@ -25,7 +25,7 @@ namespace MessageQueue.Controllers
         }
 
         [HttpPost("Publish")]
-        public IActionResult AddMessage([FromBody] Message message)
+        public async Task<IActionResult> AddMessage([FromBody] Message message)
         {
             try
             {
@@ -47,8 +47,50 @@ namespace MessageQueue.Controllers
             }
         }
 
+        [HttpPost("PutBack")]
+        public async Task<IActionResult> ReplaceMessage([FromBody] Message message)
+        {
+            try
+            {
+                _queueManager.ReplaceMessage(message);
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+
+                return BadRequest($"Error while replacing message {message.Name}");
+            }
+        }
+
+        [HttpGet("ByName")]
+        public IActionResult RetrieveMessageByName([FromQuery] string videoName)
+        {
+            Message result = null;
+            try
+            {
+                result = _queueManager.GetMessage(videoName.Replace("\"", ""));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+
+                return BadRequest($"Error retrieving message with id {videoName}");
+            }
+
+            if (result != null)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return NotFound($"Video with id {videoName} was not found");
+            }
+        }
+
         [HttpGet]
-        public IActionResult RetrieveMessage([FromQuery] Guid messageId)
+        public IActionResult RetrieveMessageById([FromQuery] Guid messageId)
         {
             Message result = null;
             try

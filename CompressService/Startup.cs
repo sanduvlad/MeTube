@@ -49,12 +49,12 @@ namespace CompressService
 
             app.Use(async (context, next) =>
             {
-                // if specific condition does not meet
                 if (context.Request.Headers.ContainsKey("compressReady"))
                 {
-                    var videoToCompress = context.Request.Headers["compressReady"];
-                    //context.Response.Redirect("api/CompressionFacility?videoToCompress=");
-                    context.Response.Redirect("/weatherforecast");
+                    var videoToCompressId = context.Request.Headers["compressReady"];
+                    context.Request.Headers.Remove("compressReady");
+                    context.Response.Redirect($"api/CompressionFacility?videoToCompressId={videoToCompressId[0]}");
+                    
                     //await next.Invoke();
                 }
                 else

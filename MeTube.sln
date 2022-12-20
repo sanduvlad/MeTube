@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.2.32630.192
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32602.291
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeTube", "MeTube\MeTube.csproj", "{D78F9266-3C9C-4AFF-8CE1-CF9BAE1CFF6B}"
 EndProject
@@ -11,15 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{3D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompressService", "CompressService\CompressService.csproj", "{A9062F97-8155-492E-B8DF-7A6850474998}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CopyrightService", "CopyrightService\CopyrightService.csproj", "{0E92DDCC-4FFC-41AF-AA28-4BE78837C119}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StorageService", "StorageService\StorageService.csproj", "{EBCA7BB7-AAA8-423D-9C7C-69C49C087F88}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{CFA4EBF0-B31D-496E-8EF0-CC0537C25E8F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessageQueue.Tests", "MessageQueue.Tests\MessageQueue.Tests.csproj", "{FF2107AB-6762-4178-B1A2-AC70E767500F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E2E.Tests", "E2E.Tests\E2E.Tests.csproj", "{22131B59-61FD-4F68-835A-E5A3C5FD65D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E2E.Tests", "E2E.Tests\E2E.Tests.csproj", "{22131B59-61FD-4F68-835A-E5A3C5FD65D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,14 +35,6 @@ Global
 		{A9062F97-8155-492E-B8DF-7A6850474998}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9062F97-8155-492E-B8DF-7A6850474998}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9062F97-8155-492E-B8DF-7A6850474998}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0E92DDCC-4FFC-41AF-AA28-4BE78837C119}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0E92DDCC-4FFC-41AF-AA28-4BE78837C119}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0E92DDCC-4FFC-41AF-AA28-4BE78837C119}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0E92DDCC-4FFC-41AF-AA28-4BE78837C119}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EBCA7BB7-AAA8-423D-9C7C-69C49C087F88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EBCA7BB7-AAA8-423D-9C7C-69C49C087F88}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EBCA7BB7-AAA8-423D-9C7C-69C49C087F88}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EBCA7BB7-AAA8-423D-9C7C-69C49C087F88}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FF2107AB-6762-4178-B1A2-AC70E767500F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FF2107AB-6762-4178-B1A2-AC70E767500F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF2107AB-6762-4178-B1A2-AC70E767500F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -61,8 +49,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A9062F97-8155-492E-B8DF-7A6850474998} = {3D3A79F1-1C14-4D3E-AC15-C6EF81D71E20}
-		{0E92DDCC-4FFC-41AF-AA28-4BE78837C119} = {3D3A79F1-1C14-4D3E-AC15-C6EF81D71E20}
-		{EBCA7BB7-AAA8-423D-9C7C-69C49C087F88} = {3D3A79F1-1C14-4D3E-AC15-C6EF81D71E20}
 		{FF2107AB-6762-4178-B1A2-AC70E767500F} = {CFA4EBF0-B31D-496E-8EF0-CC0537C25E8F}
 		{22131B59-61FD-4F68-835A-E5A3C5FD65D9} = {CFA4EBF0-B31D-496E-8EF0-CC0537C25E8F}
 	EndGlobalSection
